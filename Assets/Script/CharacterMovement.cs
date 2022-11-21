@@ -7,6 +7,8 @@ public class CharacterMovement : MonoBehaviour
     public float moveMult;
     float horiMove;
     float vertiMove;
+    public float rushMultPublic;
+    float rushMult;
 
     Rigidbody2D myBody;
     // Start is called before the first frame update
@@ -20,19 +22,35 @@ public class CharacterMovement : MonoBehaviour
     {
         horiMove = Input.GetAxis("Horizontal");
         vertiMove = Input.GetAxis("Vertical");
+        rush();
     }
 
     private void FixedUpdate()
     {
         AllMove(horiMove, vertiMove);
 
+
     }
 
     void AllMove(float toMoveX, float toMoveY)
     {
-        float moveX = toMoveX * Time.fixedDeltaTime * moveMult;
-        float moveY = toMoveY * Time.fixedDeltaTime * moveMult;
+        float moveX = toMoveX * Time.fixedDeltaTime * moveMult * rushMult;
+        float moveY = toMoveY * Time.fixedDeltaTime * moveMult * rushMult;
         myBody.velocity = new Vector3(moveX, moveY);
+
+    }
+
+    void rush()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rushMult = rushMultPublic;
+            Debug.Log("sure");
+        }
+        else
+        {
+            rushMult = 1;
+        }
 
     }
 

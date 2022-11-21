@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMult: 200
+  rushMultPublic: 10
 --- !u!212 &61509543
 SpriteRenderer:
   m_ObjectHideFlags: 0
