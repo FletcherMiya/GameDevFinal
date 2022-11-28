@@ -1584,7 +1584,7 @@ MonoBehaviour:
   attack: {fileID: 80043958607907681, guid: 1c01a57e5d246504b89159bde4212f06, type: 3}
   mouseAim: {fileID: 812185377}
   attackCD: 0
-  attackCDAmnt: 1
+  attackCDAmnt: 50
 --- !u!212 &675727660
 SpriteRenderer:
   m_ObjectHideFlags: 0
