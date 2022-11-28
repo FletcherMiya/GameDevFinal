@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float dashDist;
     public int dashCD;
+    public int dashCDAmnt;
     public GameObject attack;
     public Transform mouseAim;
+    public int attackCD;
+    public int attackCDAmnt;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +27,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && dashCD == 0)
         {
             transform.position += new Vector3(h * speed * dashDist, v * speed * dashDist, 0);
-            dashCD = 50;
+            dashCD = dashCDAmnt;
         }
 
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 36f);
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * -10f);
         mouseAim.transform.position = mouseWorldPosition;
         float angle = angleBetweenTwoPoints(transform.position, mouseWorldPosition);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && attackCD == 0)
         {
             Instantiate(attack, transform.position, Quaternion.Euler(0, 0, angle));
+            attackCD = attackCDAmnt;
         }
 
         
@@ -44,6 +48,10 @@ public class PlayerController : MonoBehaviour
         if(dashCD > 0)
         {
             dashCD--;
+        }
+        if(attackCD > 0)
+        {
+            attackCD--;
         }
     }
 

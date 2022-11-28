@@ -16,11 +16,11 @@ public class MouseAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 36f);
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * -10f);
         mouseAim.transform.position = mouseWorldPosition;
-        facing.position = player.transform.position;
         float angle = angleBetweenTwoPoints(mouseAim.transform.position, mouseWorldPosition);
         facing.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        
     }
 
     private float angleBetweenTwoPoints(Vector3 a, Vector3 b)
