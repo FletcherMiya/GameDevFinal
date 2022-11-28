@@ -12,22 +12,19 @@ public class EnemyRanged : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        Vector3 playerposition = player.transform.position;
-        float angle = angleBetweenTwoPoints(transform.position, playerposition);
         if (shootCD > 0)
         {
             shootCD--;
         }
         if(shootCD == 0 && (playerDistance < aimDistancce))
         {
-            Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, angle+90));
+            Instantiate(bullet, transform.position, Quaternion.identity);
             shootCD = shootCDAmnt;
         }
     }

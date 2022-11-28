@@ -7,17 +7,29 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
     public float lifetime;
+    private GameObject player;
+    public int waittime;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * speed);
+        player = GameObject.Find("Player");
+        rb.AddForce((player.transform.position - transform.position).normalized * speed);
+        GetComponent<BoxCollider2D>().enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(waittime > 0)
+        {
+            waittime--;
+        }
+        if(waittime == 0)
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 
     private void FixedUpdate()
