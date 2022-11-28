@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up* speed);
+        rb.AddForce(transform.up * speed);
     }
 
     // Update is called once per frame
