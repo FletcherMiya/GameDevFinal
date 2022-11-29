@@ -20,6 +20,7 @@ public class AttackRangePlayer : MonoBehaviour
         {
             Vector3 oldvelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = -oldvelocity;
+            collision.gameObject.GetComponent<Projectile>().isReflected = true;
         }
     }
 }

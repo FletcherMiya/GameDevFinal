@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public float lifetime;
     private GameObject player;
     public int waittime;
+    public bool isReflected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,23 @@ public class Projectile : MonoBehaviour
     {
         lifetime--;
         if(lifetime == 0)
+        {
+            Object.Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy" && isReflected)
+        {
+            Object.Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.transform.position = new Vector3(0, 0, 0);
+        }
+        if (collision.gameObject.tag != "Enemy")
         {
             Object.Destroy(gameObject);
         }
