@@ -6,7 +6,6 @@ public class MouseAim : MonoBehaviour
 {
     public Transform mouseAim;
     public Transform player;
-    public Transform facing;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +18,6 @@ public class MouseAim : MonoBehaviour
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * -10f);
         mouseAim.transform.position = mouseWorldPosition;
         float angle = angleBetweenTwoPoints(mouseAim.transform.position, mouseWorldPosition);
-        facing.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         
     }
 
