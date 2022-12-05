@@ -9,6 +9,8 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Vector3 temppos = GameObject.Find("Player").transform.position;
+        transform.position = temppos;
         lifetime--;
         if(lifetime == 0)
         {

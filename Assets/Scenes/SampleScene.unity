@@ -1007,7 +1007,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7772397, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5312,6 +5312,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1277690801}
+    - target: {fileID: 4270696781249422435, guid: 5e25e9c7d983f4c45b560702310cf0e5, type: 3}
+      propertyPath: speed
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 4270696781249422435, guid: 5e25e9c7d983f4c45b560702310cf0e5, type: 3}
       propertyPath: mouseAim
       value: 

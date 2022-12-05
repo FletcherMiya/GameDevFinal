@@ -8,6 +8,7 @@ public class EnemyMelle : MonoBehaviour
     public float speed;
     float h;
     float v;
+    public float range;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,10 @@ public class EnemyMelle : MonoBehaviour
                 v = 1;
             }
         }
-        transform.position += new Vector3(h * speed, v * speed, 0);
+        float playerdistance = Vector3.Distance(player.transform.position, transform.position);
+        if(playerdistance < range)
+        {
+            transform.position += new Vector3(h * speed, v * speed, 0);
+        }
     }
 }
