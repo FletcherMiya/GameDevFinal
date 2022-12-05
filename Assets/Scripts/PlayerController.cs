@@ -14,10 +14,11 @@ public class PlayerController : MonoBehaviour
     public int attackCDAmnt;
     public Camera cam;
     public Animator anim;
+    public Vector3 respawn;
     // Start is called before the first frame update
     void Start()
     {
-
+        respawn = new Vector3(17.5f, 82f, 0);
     }
 
     // Update is called once per frame

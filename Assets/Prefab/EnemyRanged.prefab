@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCD: 0
-  shootCDAmnt: 30
+  shootCDAmnt: 50
   aimDistancce: 15
   bullet: {fileID: 1927732500347844820, guid: ded5200344d593f43a8c3ba9ad52ea81, type: 3}
   player: {fileID: 0}
