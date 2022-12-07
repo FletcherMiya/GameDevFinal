@@ -41,7 +41,8 @@ public class EnemyMelle : MonoBehaviour
         float playerdistance = Vector3.Distance(player.transform.position, transform.position);
         if(playerdistance < range)
         {
-            transform.position += new Vector3(h * speed, v * speed, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(v * speed, GetComponent<Rigidbody2D>().velocity.y);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(h * speed, GetComponent<Rigidbody2D>().velocity.x);
         }
     }
 }

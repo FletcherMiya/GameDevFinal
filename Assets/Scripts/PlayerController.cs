@@ -25,14 +25,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        transform.position += new Vector3(h * speed, v * speed, 0);
-        
+        float h = Input.GetAxis("Vertical");
+        float v = Input.GetAxis("Horizontal");
+        //transform.position += new Vector3(h * speed, v * speed, 0);
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(h * speed, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(v * speed, GetComponent<Rigidbody2D>().velocity.x);
+
         //Dash
         if (Input.GetKey(KeyCode.LeftShift) && dashCD == 0)
         {
-            transform.position += new Vector3(h * speed * dashDist, v * speed * dashDist, 0);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(v, h) * dashDist);
             dashCD = dashCDAmnt;
         }
 
