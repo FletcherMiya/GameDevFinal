@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     public Animator anim;
     public Vector3 respawn;
+    public int hitcount;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,12 @@ public class PlayerController : MonoBehaviour
         }
 
         MoveAnimation();
+
+        if(hitcount == 0)
+        {
+            transform.position = respawn;
+            hitcount = 3;
+        }
 
     }
 

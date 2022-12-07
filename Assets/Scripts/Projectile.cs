@@ -51,7 +51,8 @@ public class Projectile : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.transform.position = player.GetComponent<PlayerController>().respawn;
+            collision.gameObject.GetComponent<PlayerController>().hitcount -= 1;
+            FindObjectOfType<GetHitScreen>().hit();
         }
         if (collision.gameObject.tag != "Enemy")
         {
