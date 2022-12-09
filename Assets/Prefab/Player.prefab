@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1024997745, guid: 0dd91d7ef9ae0374ba5f46aba812e9ab, type: 3}
+  m_Sprite: {fileID: 1671385957, guid: 301637fff4426494c8473249eb9d0b5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   attackCDAmnt: 50
   cam: {fileID: 0}
   anim: {fileID: 6087307118645019797}
+  respawn: {x: 0, y: 0, z: 0}
+  hitcount: 0
 --- !u!61 &4270696781249422438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,11 +126,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.41822815}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

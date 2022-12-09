@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 7
+  lag: 3
 --- !u!1 &8192673305554047778
 GameObject:
   m_ObjectHideFlags: 0
