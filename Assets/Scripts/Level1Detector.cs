@@ -22,7 +22,7 @@ public class Level1Detector : MonoBehaviour
             if(enemies[i] == null)
             {
                 count++;
-                if (count == 16)
+                if (count == enemies.Length)
                 {
                     GameObject.Destroy(Wall_lvl1);
                     player.GetComponent<PlayerController>().respawn = new Vector3(14.9f, -118.5f, 0);
