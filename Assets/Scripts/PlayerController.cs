@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * -10f);
         mouseAim.transform.position = mouseWorldPosition;
         float angle = angleBetweenTwoPoints(transform.position, mouseWorldPosition);
-        Debug.Log("The angle is" + angle);
         if (Input.GetMouseButtonDown(0) && attackCD == 0)
         {
             Instantiate(attack, transform.position, Quaternion.Euler(0, 0, angle));

@@ -9,10 +9,12 @@ public class EnemyMelle : MonoBehaviour
     float h;
     float v;
     public float range;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,39 @@ public class EnemyMelle : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(v * speed, GetComponent<Rigidbody2D>().velocity.y);
             GetComponent<Rigidbody2D>().velocity = new Vector2(h * speed, GetComponent<Rigidbody2D>().velocity.x);
+        }
+
+        float angle = angleBetweenTwoPoints(transform.position, player.transform.position);
+        attackAnimation(angle);
+    }
+
+    private float angleBetweenTwoPoints(Vector3 a, Vector3 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
+
+    private void attackAnimation(float ang)
+    {
+
+        if (ang >= -45 && ang < 45)
+        {
+            anim.SetTrigger("left");
+        }
+
+        if (ang >= -135 && ang < -45)
+        {
+            anim.SetTrigger("up");
+        }
+
+
+        if (ang >= 135 || ang < -135)
+        {
+            anim.SetTrigger("right");
+        }
+
+        if (ang >= 45 && ang < 135)
+        {
+            anim.SetTrigger("down");
         }
     }
 }
