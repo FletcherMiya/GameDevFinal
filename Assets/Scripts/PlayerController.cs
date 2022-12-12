@@ -16,10 +16,14 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public Vector3 respawn;
     public int hitcount;
+    public AudioClip atk;
+    public AudioSource audiosource;
     // Start is called before the first frame update
     void Start()
     {
         respawn = new Vector3(17.5f, 82f, 0);
+        audiosource = GetComponent<AudioSource>();
+        audiosource.clip = atk;
     }
 
     // Update is called once per frame
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour
         float angle = angleBetweenTwoPoints(transform.position, mouseWorldPosition);
         if (Input.GetMouseButtonDown(0) && attackCD == 0)
         {
+            audiosource.Play();
             Instantiate(attack, transform.position, Quaternion.Euler(0, 0, angle));
             attackCD = attackCDAmnt;
             attackAnimation(angle);

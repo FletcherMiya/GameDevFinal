@@ -16,7 +16,7 @@ public class AttackRangePlayer : MonoBehaviour
         {
             FindObjectOfType<HitStop>().stop(0.1f);
             Destroy(collision.gameObject);
-            Screenshake.Instance.ShakeCamera(5f, .1f);
+            Screenshake.Instance.ShakeCamera(7f, .1f);
         }
         if (collision.gameObject.tag == "Projectile")
         {
@@ -24,7 +24,7 @@ public class AttackRangePlayer : MonoBehaviour
             Vector3 oldvelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = -oldvelocity;
             collision.gameObject.GetComponent<Projectile>().isReflected = true;
-            Screenshake.Instance.ShakeCamera(3f, .1f);
+            Screenshake.Instance.ShakeCamera(7f, .1f);
         }
     }
 }
